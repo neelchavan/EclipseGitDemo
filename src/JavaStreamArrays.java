@@ -49,6 +49,14 @@ public class JavaStreamArrays {
 				Arrays.asList(arr2).stream().sorted().collect(Collectors.toList()));
 		System.out.println(arrConvToList);
 
+		// Convert int[] to list
+		List<Integer> you = Arrays.stream(arr).boxed().collect(Collectors.toList());
+		System.out.println(you);
+		
+		// Convert int[] to Integer[]
+		Integer[] what = Arrays.stream(arr).boxed().toArray(Integer[]::new);
+		System.out.println(Arrays.toString(what));
+
 	}
 
 }
