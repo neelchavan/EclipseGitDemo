@@ -7,6 +7,7 @@ public class MatchingChCount {
 		int count = 0;
 		String sentence = "aeiaouu";
 		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter thr ch");
 		char ch1 = sc.next().charAt(0);
 		char[] ch = { ch1 };
 		for (char iteratedValues : ch)
