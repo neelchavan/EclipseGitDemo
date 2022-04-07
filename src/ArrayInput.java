@@ -11,11 +11,12 @@ public class ArrayInput {
 
 		int[] arr = new int[n];
 
-		System.out.println("Enter values for array by space");		
+		System.out.println("Enter values for array by space");
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = sc.nextInt();
 		}
-		
+
 		System.out.println(Arrays.toString(arr));
+
 	}
 }

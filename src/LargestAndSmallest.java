@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class LargestAndSmallest {
 
@@ -15,6 +16,11 @@ public class LargestAndSmallest {
 		}
 		System.out.println("largest " + largest);
 		System.out.println("smallest " + smallest);
+
+		// Alternate Way
+		int min = Arrays.stream(arr).min().getAsInt();
+		int max = Arrays.stream(arr).max().getAsInt();
+		System.out.println("min: " + min + " max: " + max);
 	}
 
 }
