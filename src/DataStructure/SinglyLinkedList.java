@@ -27,6 +27,16 @@ public class SinglyLinkedList {
 		System.out.println("null");
 	}
 
+	public void length() {
+		int count = 0;
+		ListNode current = head;
+		while(current != null) {
+			count++;
+			current = current.next;
+		}
+		System.out.println(count);
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		SinglyLinkedList sl = new SinglyLinkedList();
@@ -42,6 +52,7 @@ public class SinglyLinkedList {
 		third.next = fourth;
 
 		sl.display();
+		sl.length();
 	}
 
 }
