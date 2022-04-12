@@ -8,10 +8,9 @@ public class SinglyLinkedList {
 	private static class ListNode {
 		// Data variable
 		private int data;
-		
+
 		// Pointer variable
 		private ListNode next;
-
 		public ListNode(int data) {
 			this.data = data;
 			this.next = null;
@@ -25,29 +24,28 @@ public class SinglyLinkedList {
 			current = current.next;
 		}
 		System.out.println("null");
-		
 	}
 
-	// Display length 
+	// Display length
 	public void length() {
 		int count = 0;
 		ListNode current = head;
-		while(current != null) {
+		while (current != null) {
 			count++;
 			current = current.next;
 		}
 		System.out.println(count);
 	}
-	
+
 	public void addNodeAtBeginning(int value) {
 		ListNode newNode = new ListNode(value);
 		newNode.next = head;
 		head = newNode;
 	}
-	
+
 	public void addNodeAtEnd(int value) {
 		ListNode newNode = new ListNode(value);
-		if(head == null) {
+		if (head == null) {
 			head = newNode;
 			return;
 		}
@@ -58,7 +56,25 @@ public class SinglyLinkedList {
 		}
 		current.next = newNode;
 	}
-	
+
+	public void addNodeAtGivenPosition(int value, int position) {
+		ListNode newNode = new ListNode(value);
+		if (position == 1) {
+			newNode.next = head;
+			head = newNode;
+		} else {
+			ListNode previous = head;
+			int count = 1;
+			while (count < position - 1) {
+				previous = previous.next;
+				count++;
+			}
+			ListNode current = previous.next;
+			newNode.next = current;
+			previous.next = newNode;
+		}
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		SinglyLinkedList sl = new SinglyLinkedList();
@@ -74,12 +90,18 @@ public class SinglyLinkedList {
 		third.next = fourth;
 
 		sl.display();
+		sl.length();
+		System.out.println("================");
 		sl.addNodeAtEnd(6);
 		sl.display();
+		sl.length();
 		System.out.println("================");
 		sl.addNodeAtBeginning(3);
 		sl.display();
 		sl.length();
+		System.out.println("================");
+		sl.addNodeAtGivenPosition(22, 1);
+		sl.display();
+		sl.length();
 	}
-
 }
