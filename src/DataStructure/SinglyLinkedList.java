@@ -28,6 +28,9 @@ public class SinglyLinkedList {
 
 	// Display length
 	public void length() {
+		if(head == null) {
+			System.out.println(0);
+		}
 		int count = 0;
 		ListNode current = head;
 		while (current != null) {
