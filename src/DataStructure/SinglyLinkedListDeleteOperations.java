@@ -80,7 +80,6 @@ public class SinglyLinkedListDeleteOperations {
 			previous.next = current.next;
 			current.next = null;
 		}
-
 	}
 
 	public static void main(String[] args) {
@@ -114,9 +113,8 @@ public class SinglyLinkedListDeleteOperations {
 		sl.display();
 		sl.length();
 		System.out.println("==========================");
-		sl.deleteNodeAtGivenPosition(4);
+		sl.deleteNodeAtGivenPosition(2);
 		sl.display();
 		sl.length();
 	}
-
 }
