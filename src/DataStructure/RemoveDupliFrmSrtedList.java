@@ -1,6 +1,6 @@
 package DataStructure;
 
-public class FindNodeFrmEndOfList {
+public class RemoveDupliFrmSrtedList {
 	private ListNode head;
 
 	private static class ListNode {
@@ -22,27 +22,21 @@ public class FindNodeFrmEndOfList {
 		System.out.println("null");
 	}
 
-	public void FindNodeFromTheEndOfList(int n) {
-		ListNode mainPtr = head;
-		ListNode refPtr = head;
-		int count = 0;
-		while (count < n) {
-			refPtr = refPtr.next;
-			count++;
+	public void RemoveDuplicates() {
+		ListNode current = head;
+		while (current != null && current.next != null) {
+			if(current.data == current.next.data) {
+				current.next = current.next.next;
+			}
+			current = current.next;
 		}
-		System.out.println("RefPtr: " + refPtr.data);
-		while (refPtr != null) {
-			mainPtr = mainPtr.next;
-			refPtr = refPtr.next;
-		}
-		System.out.println("The Node is: " + mainPtr.data);
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		FindNodeFrmEndOfList fl = new FindNodeFrmEndOfList();
+		RemoveDupliFrmSrtedList rd = new RemoveDupliFrmSrtedList();
 
-		fl.head = new ListNode(10);
+		rd.head = new ListNode(10);
 		ListNode second = new ListNode(20);
 		ListNode third = new ListNode(30);
 		ListNode fourth = new ListNode(40);
@@ -50,16 +44,19 @@ public class FindNodeFrmEndOfList {
 		ListNode sixth = new ListNode(60);
 		ListNode seventh = new ListNode(70);
 		ListNode eight = new ListNode(80);
+		ListNode ninth = new ListNode(80);
 
-		fl.head.next = second;
+		rd.head.next = second;
 		second.next = third;
 		third.next = fourth;
 		fourth.next = fifth;
 		fifth.next = sixth;
 		sixth.next = seventh;
 		seventh.next = eight;
+		eight.next = ninth;
 
-		fl.display();
-		fl.FindNodeFromTheEndOfList(2);
+		rd.display();
+		rd.RemoveDuplicates();
+		rd.display();
 	}
 }
