@@ -16,11 +16,11 @@ public class SearchSinglyLinkedList {
 
 	public void display() {
 		ListNode current = head;
-		while (current.next != null) {
+		while (current != null) {
 			System.out.print(current.data + " --> ");
 			current = current.next;
 		}
-		System.out.println(current.next);
+		System.out.println("null");
 	}
 
 	public boolean searchByData(int data) {
@@ -38,6 +38,22 @@ public class SearchSinglyLinkedList {
 			current = current.next;
 		}
 		return false;
+	}
+
+	public void SearchByDataAndRemove(int key) {
+		ListNode current = head;
+		ListNode prev = head;
+		if (key == head.data) {
+			head = head.next;
+			current.next = null;
+		}
+		while (current.next != null) {
+			if (current.data == key) {
+				prev.next = current.next;
+			}
+			prev = current;
+			current = current.next;
+		}
 	}
 
 	public static void main(String[] args) {
@@ -68,7 +84,7 @@ public class SearchSinglyLinkedList {
 		} else {
 			System.out.println("not found");
 		}
-//		sl.searchByData(90);
+		sl.SearchByDataAndRemove(10);
+		sl.display();
 	}
-
 }
